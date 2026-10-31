@@ -1,0 +1,134 @@
+/* Eternal Garden — Legacy Mirror page styles.
+   Extends the shared dashboard theme (globals.css) and reuses the
+   Oracle chat classes from creative/suites.css.
+   Creator: David Charles Bourassa · Quantum Concepts LLC, Santa Fe, New Mexico. */
+
+.garden-banner {
+  border: 1px solid var(--gold-dim);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: rgba(212, 175, 55, 0.08);
+  padding: 0.8rem 1.1rem;
+  margin: 1rem 0 1.25rem;
+  font-size: 0.95rem;
+}
+.garden-banner strong {
+  color: var(--gold-bright);
+}
+
+.garden-stage {
+  height: 480px;
+  margin-bottom: 1.25rem;
+}
+.garden-mount {
+  position: absolute;
+  inset: 0;
+}
+.garden-mount canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.era-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+.era-legend .ring-dot {
+  margin-right: 0.35rem;
+}
+
+.era-section {
+  margin-bottom: 1.25rem;
+}
+.era-section h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.era-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.6rem;
+}
+.memory-chip-card {
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+  color: var(--fg);
+  font-family: inherit;
+  cursor: pointer;
+}
+.memory-chip-card:hover {
+  border-color: var(--gold-dim);
+}
+.memory-chip-card.is-selected {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+}
+.memory-chip-card strong {
+  display: block;
+  font-size: 0.92rem;
+  margin-bottom: 0.15rem;
+}
+.memory-chip-card span {
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+}
+
+.provenance-card dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin: 0 0 0.6rem;
+}
+.provenance-card dl div {
+  display: flex;
+  gap: 0.5rem;
+}
+.provenance-card dt {
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+}
+.provenance-card dd {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.legacy-answer {
+  margin-top: 1rem;
+}
+.legacy-claims {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.legacy-claims li {
+  border-left: 3px solid var(--teal);
+  padding-left: 0.7rem;
+  font-size: 0.92rem;
+}
+.legacy-sources {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0.6rem 0 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+}
+.badge-abstain {
+  color: var(--gold-bright);
+  border-color: var(--gold-dim);
+}

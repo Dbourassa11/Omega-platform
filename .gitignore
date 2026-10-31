@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.next/
+.turbo/
+out/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+*.tsbuildinfo
+
+# Snapshot archives / backups — never commit
+backups/
+*.tar.gz
+
+# Foundry / contracts
+contracts/cache/
+contracts/out/
+contracts/broadcast/

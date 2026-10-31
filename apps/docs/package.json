@@ -1,0 +1,1 @@
+{"description":"Omega Platform documentation portal stub (SCAFFOLD). Creator: David Charles Bourassa · Quantum Concepts LLC, Santa Fe, New Mexico.","name":"@omega/docs-app","private":true,"scripts":{"build":"tsc -p tsconfig.json","clean":"rm -rf dist .turbo","lint":"eslint src","typecheck":"tsc --noEmit -p tsconfig.json"},"version":"0.1.0"}

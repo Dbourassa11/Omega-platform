@@ -1,0 +1,6 @@
+# SCAFFOLD — Cloudflare Worker stub for the Omega Platform.
+# Creator: David Charles Bourassa · Quantum Concepts LLC, Santa Fe, New Mexico.
+# No secrets in this file. Bindings and routes are added in later steps.
+name = "omega-worker"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"

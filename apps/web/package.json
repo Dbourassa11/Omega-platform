@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "@omega/ai-core": "workspace:*",
+    "@omega/consent-core": "workspace:*",
+    "@omega/cosmos-engine": "workspace:*",
+    "@omega/economic-kernel": "workspace:*",
+    "@omega/legacy-engine": "workspace:*",
+    "@omega/mcp-gateway": "workspace:*",
+    "@omega/policy-engine": "workspace:*",
+    "@omega/meta-export": "workspace:*",
+    "@omega/ui": "workspace:*",
+    "@omega/vault-core": "workspace:*",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "description": "Eternal Quantum Horizons Ω — Omega Platform web app. Creator: David Charles Bourassa · Quantum Concepts LLC, Santa Fe, New Mexico.",
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5.7.2"
+  },
+  "name": "@omega/web",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "clean": "rm -rf .next .turbo",
+    "dev": "next dev",
+    "lint": "eslint .",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "version": "0.1.0"
+}

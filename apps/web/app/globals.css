@@ -1,0 +1,903 @@
+/* Omega Platform web shell — coherent dark dashboard theme.
+   Deep space navy/black with gold Ω accents. Plain CSS, no modules.
+   Creator: David Charles Bourassa · Quantum Concepts LLC, Santa Fe, New Mexico. */
+
+:root {
+  --bg: #05070f;
+  --bg-deep: #02030a;
+  --bg-elevated: #0b0f1e;
+  --bg-card: #0d1226;
+  --bg-input: #080b18;
+  --fg: #ece7d9;
+  --fg-muted: #9a9585;
+  --fg-dim: #6f6a5c;
+  --gold: #d4af37;
+  --gold-bright: #f0cd5a;
+  --gold-dim: #8a7323;
+  --teal: #6ee7ff;
+  --violet: #b18cff;
+  --green: #7be3a8;
+  --red: #ff8a8a;
+  --border: #232842;
+  --border-soft: #1a1f36;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    ui-sans-system,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--gold-bright);
+  text-decoration: underline;
+}
+
+/* Keyboard focus — a clear gold ring on every interactive element.
+   :focus-visible only fires for keyboard / assistive navigation, so
+   mouse users see no change. Inputs keep their own :focus rule below
+   (higher specificity) which is the same gold family. */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+/* ---------- Dashboard shell ---------- */
+
+.dash-layout {
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem 1rem;
+  background: linear-gradient(180deg, var(--bg-elevated), var(--bg-deep));
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.brand-mark {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--gold);
+  text-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+.brand-text strong {
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+}
+.brand-text small {
+  color: var(--fg-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--fg);
+}
+.nav-link:hover {
+  text-decoration: none;
+  border-color: var(--border);
+  background: rgba(212, 175, 55, 0.05);
+}
+.nav-link.active {
+  border-color: var(--gold-dim);
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--gold-bright);
+}
+.nav-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.nav-hint {
+  font-size: 0.74rem;
+  color: var(--fg-muted);
+}
+
+.sidebar-foot {
+  margin-top: auto;
+  padding: 0.5rem;
+  font-size: 0.74rem;
+  color: var(--fg-dim);
+  border-top: 1px solid var(--border-soft);
+}
+
+.dash-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.5rem;
+  padding: 0.9rem 1.75rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.topbar-product {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+.topbar-note {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+}
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.75rem;
+}
+
+.dash-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.1rem 1.75rem;
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .dash-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+  .nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .nav-hint {
+    display: none;
+  }
+  .sidebar-foot {
+    display: none;
+  }
+}
+
+/* ---------- Small screens (phones, ~390px) ----------
+   The shell collapses to a single column: the sidebar becomes a
+   horizontal, scrollable nav strip above the content, nothing may
+   force page-level horizontal scroll, and wide content (tables,
+   pre blocks) scrolls inside its own box instead. Desktop layout
+   above is untouched. */
+@media (max-width: 720px) {
+  .dash-layout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 100vw;
+  }
+  .dash-layout > * {
+    min-width: 0;
+  }
+  .dash-main {
+    min-width: 0;
+  }
+  .sidebar {
+    gap: 0.75rem;
+    padding: 0.85rem 0.9rem 0.7rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    overflow-y: visible;
+  }
+  .sidebar-brand {
+    padding: 0;
+  }
+  .brand-mark {
+    font-size: 1.6rem;
+  }
+  .nav-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.3rem;
+    margin: 0 -0.9rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+  .nav-list > li {
+    flex: none;
+  }
+  .nav-link {
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.45rem 0.65rem;
+  }
+  .topbar {
+    padding: 0.8rem 0.9rem;
+  }
+  .page {
+    min-width: 0;
+    padding: 1.1rem 0.9rem;
+  }
+  .dash-footer {
+    padding: 1rem 0.9rem;
+  }
+  /* Wide content scrolls within its container, never the page. */
+  .page table,
+  .card table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .page pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .page img,
+  .page canvas,
+  .page svg {
+    max-width: 100%;
+  }
+  /* Canvas stages keep a usable height without dominating the screen. */
+  .cosmos-stage {
+    height: 340px;
+  }
+  .feed-item {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Shared utility contract (used across all pages) ---------- */
+
+.page-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.65rem;
+  color: var(--fg);
+}
+.page-title .omega {
+  color: var(--gold);
+}
+
+.muted {
+  color: var(--fg-muted);
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  background: var(--bg-card);
+  margin-bottom: 1.25rem;
+}
+.card h2,
+.card h3 {
+  margin-top: 0;
+  color: var(--gold);
+}
+.card > :last-child {
+  margin-bottom: 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.card-grid .card {
+  margin-bottom: 0;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 0.3rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--bg-elevated);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.btn:hover {
+  border-color: var(--gold-dim);
+  color: var(--gold-bright);
+  text-decoration: none;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #1b2450;
+  border-color: #33407a;
+  color: #dbe4ff;
+}
+.btn-primary:hover {
+  border-color: var(--teal);
+  color: #ffffff;
+}
+
+.btn-gold {
+  background: linear-gradient(180deg, #3a2f10, #2a2208);
+  border-color: var(--gold-dim);
+  color: var(--gold-bright);
+}
+.btn-gold:hover {
+  border-color: var(--gold);
+  color: #ffe98a;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  background: var(--bg-input);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+.textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: 2px solid var(--gold-dim);
+  outline-offset: 1px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.9rem;
+}
+.field label,
+.field-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+.badge-live {
+  color: var(--green);
+  border-color: #2c5c40;
+}
+.badge-offline {
+  color: var(--fg-muted);
+  border-color: var(--border);
+}
+.badge-guardian {
+  color: var(--violet);
+  border-color: #4b3a75;
+}
+.badge-gold {
+  color: var(--gold-bright);
+  border-color: var(--gold-dim);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--fg);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
+.chip .dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--gold);
+  flex: none;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.tab {
+  background: var(--bg-elevated);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  font-size: 0.88rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.tab:hover {
+  border-color: var(--gold-dim);
+}
+.tab.active {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.feed-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.feed-item:last-child {
+  border-bottom: none;
+}
+.feed-item time {
+  flex: none;
+  font-size: 0.78rem;
+  color: var(--fg-dim);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.15rem;
+}
+.feed-item .feed-kind {
+  flex: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 0.2rem;
+  min-width: 4.5rem;
+}
+.feed-item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.matrix {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 0.5rem 0 0.25rem;
+}
+.matrix th,
+.matrix td {
+  border: 1px solid var(--border-soft);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+.matrix thead th {
+  background: var(--bg-elevated);
+  color: var(--gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.matrix tbody th {
+  background: var(--bg-elevated);
+  font-weight: 600;
+}
+.cell-allow {
+  color: var(--green);
+  font-weight: 600;
+}
+.cell-deny {
+  color: var(--red);
+  font-weight: 600;
+}
+.cell-reason {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: var(--fg-muted);
+}
+
+/* ---------- Cosmos page ---------- */
+
+.cosmos-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cosmos-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.25rem;
+}
+
+.cosmos-controls .control-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.control-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.ring-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ring-button {
+  background: var(--bg-elevated);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.ring-button:hover {
+  border-color: var(--gold-dim);
+}
+.ring-button[aria-pressed="true"] {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.count-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+.count-select select {
+  background: var(--bg-elevated);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  font-family: inherit;
+}
+
+.cosmos-stats {
+  margin: 0;
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.cosmos-stage {
+  position: relative;
+  height: 560px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.cosmos-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cosmos-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+.demo-label {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.6rem;
+  max-width: calc(100% - 1.5rem);
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--fg-muted);
+  background: rgba(5, 7, 15, 0.72);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.selection-panel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  background: var(--bg-elevated);
+}
+.selection-panel h3 {
+  margin: 0 0 0.5rem;
+  color: var(--gold);
+  font-size: 1rem;
+}
+.selection-panel dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin: 0 0 0.5rem;
+}
+.selection-panel dl div {
+  display: flex;
+  gap: 0.5rem;
+}
+.selection-panel dt {
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+}
+.selection-panel dd {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.panel-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+
+/* ---------- PhiSplit page ---------- */
+
+.split-bar {
+  display: flex;
+  width: 100%;
+  height: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0.4rem 0 0.8rem;
+}
+.split-bar.small {
+  height: 1.1rem;
+  margin: 0.25rem 0 0.5rem;
+}
+.split-seg {
+  height: 100%;
+  min-width: 0;
+  transition: width 200ms ease;
+}
+.seg-trust {
+  background: linear-gradient(180deg, #e8c84e, #b8912a);
+}
+.seg-members {
+  background: linear-gradient(180deg, #4fc3dd, #2b7f96);
+}
+.seg-ops {
+  background: linear-gradient(180deg, #a582f0, #6f4fc0);
+}
+
+.split-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+.split-legend .swatch {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 3px;
+  margin-right: 0.4rem;
+  vertical-align: -0.1rem;
+}
+
+.split-tree {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+.split-tree > li {
+  border-left: 2px solid var(--border);
+  padding: 0.4rem 0 0.9rem 1rem;
+  margin-left: 0.4rem;
+}
+.split-tree h4 {
+  margin: 0 0 0.2rem;
+  font-size: 0.95rem;
+}
+.split-sub {
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.money {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------- Overview / misc ---------- */
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.quick-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  background: var(--bg-card);
+  color: var(--fg);
+}
+.quick-card:hover {
+  border-color: var(--gold-dim);
+  text-decoration: none;
+}
+.quick-card h3 {
+  margin: 0 0 0.3rem;
+  color: var(--gold);
+  font-size: 1rem;
+}
+.quick-card p {
+  margin: 0;
+  font-size: 0.87rem;
+  color: var(--fg-muted);
+}
+
+.status-list {
+  margin: 0.4rem 0 0.9rem;
+  padding-left: 1.2rem;
+}
+.status-list li {
+  margin-bottom: 0.25rem;
+  font-size: 0.92rem;
+}
+
+.ring-dot {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  margin-right: 0.45rem;
+  vertical-align: -0.05rem;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.9rem;
+}
+.toggle-row input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--gold);
+}
+
+/* ---------- Reduced motion ----------
+   Web-side complement to the cosmos engine's own reduced-motion
+   handling (CosmosCanvas passes the setting / media query through:
+   intro snaps, auto-rotate off). Here every CSS transition and
+   animation — e.g. the PhiSplit .split-seg width transition — is
+   effectively removed for users who ask for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}

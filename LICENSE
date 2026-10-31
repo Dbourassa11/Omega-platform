@@ -1,0 +1,55 @@
+Omega Platform — Eternal Quantum Horizons Ω
+Licence
+
+Copyright © 2026 Quantum Concepts LLC. All rights reserved.
+
+Created by David Charles Bourassa, Founder, Quantum Concepts LLC,
+Santa Fe, New Mexico.
+
+Proprietary software
+
+The software, source code, documentation, and other materials in
+this repository (collectively, the "Software") are the proprietary
+property of Quantum Concepts LLC. Except for the limited grant in
+the next section, no rights in the Software are granted to any
+person, whether by implication, estoppel, or otherwise. All rights
+not expressly granted in this file are reserved.
+
+Hackathon-review grant
+
+Quantum Concepts LLC grants the organizers and judges of the
+Meta Global AI Developer Hackathon 2026 (Meta and Cerebral Valley)
+a limited, non-exclusive, non-transferable right to access, read,
+clone, and run the Software solely for the purpose of reviewing
+and evaluating this hackathon submission.
+
+This grant does not include any right to redistribute the Software,
+to modify the Software for distribution, to sublicense the
+Software, or to use the Software for any commercial purpose. No
+trademark rights and no patent rights are granted under this file.
+
+Official Rules
+
+Nothing in this file limits, narrows, or otherwise affects any
+rights the hackathon organizers hold in submitted material under
+the Official Rules of the Meta Global AI Developer Hackathon 2026.
+That licence, granted by entering the event, exists independently
+of this file.
+
+Third-party components
+
+This licence covers only the original code and materials of
+Quantum Concepts LLC. Third-party open-source components included
+in this repository — including frameworks, libraries, and
+forge-std — remain under their own licences, and their copyright
+and licence notices remain intact and continue to apply to those
+components.
+
+No warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING ANY WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. TO THE
+EXTENT PERMITTED BY LAW, QUANTUM CONCEPTS LLC WILL NOT BE LIABLE
+FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE
+OF THE SOFTWARE UNDER THE GRANT ABOVE.

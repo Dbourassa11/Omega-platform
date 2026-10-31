@@ -1,0 +1,254 @@
+/* Page-specific styling for the Creative Suites, Share Center, and Oracle
+   pages. Base utilities (.page-title, .card, .btn, .badge, .tabs, …) come
+   from globals.css; everything here is scoped to these three suites.
+   Creator: David Charles Bourassa · Quantum Concepts LLC, Santa Fe, New Mexico. */
+
+.suite-section {
+  margin-top: 2rem;
+}
+
+.suite-section > h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  color: var(--gold);
+}
+
+.suite-panel {
+  margin-top: 1.5rem;
+}
+
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1 1 180px;
+}
+
+.form-field > span {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.backend-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.draft-area {
+  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.project-meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+
+.project-excerpt {
+  margin: 0.5rem 0 0;
+  color: var(--fg-muted);
+  font-size: 0.92rem;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.suite-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.empty-note {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--fg-muted);
+}
+
+.error-note {
+  border: 1px solid #a33b2e;
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  color: #f0b8ae;
+  background: rgba(163, 59, 46, 0.12);
+  font-size: 0.9rem;
+}
+
+.saved-note {
+  font-size: 0.9rem;
+  color: var(--gold);
+}
+
+/* --- Share Center --- */
+
+.honest-banner {
+  border: 1px solid var(--gold-dim);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  background: rgba(212, 175, 55, 0.08);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+.share-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  align-items: start;
+}
+
+.share-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #070714;
+}
+
+.picker-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.picker-chip {
+  cursor: pointer;
+}
+
+.picker-chip.is-active {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* --- Oracle --- */
+
+.oracle-scope-note {
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--fg-muted);
+}
+
+.oracle-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.oracle-bubble {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  background: var(--bg-elevated);
+  max-width: 85%;
+}
+
+.oracle-bubble p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.oracle-bubble-user {
+  align-self: flex-end;
+  border-color: var(--gold-dim);
+  background: rgba(212, 175, 55, 0.07);
+}
+
+.oracle-bubble-oracle {
+  align-self: flex-start;
+}
+
+.oracle-bubble-guardian {
+  align-self: flex-start;
+  border: 1px solid #a33b2e;
+  border-left-width: 4px;
+  background: rgba(163, 59, 46, 0.12);
+}
+
+.oracle-bubble-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.citation-list {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0.6rem 0 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+}
+
+.boundary-note {
+  margin: 0.6rem 0 0;
+  font-size: 0.88rem;
+  color: #f0b8ae;
+}
+
+.suggestion-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.suggestion-label {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+
+.oracle-input-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.oracle-input-row .input {
+  flex: 1 1 auto;
+}

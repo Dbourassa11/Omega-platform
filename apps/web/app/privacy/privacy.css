@@ -1,0 +1,222 @@
+/* Privacy Control Center + Five-Viewer Demonstration — page styles.
+   Extends the shared dashboard theme (globals.css): dark navy, gold Ω
+   accents. Base utilities (.page-title, .card, .btn, .badge, .chip,
+   .matrix, .tabs, .field, .input, .select …) come from globals.css.
+   Creator: David Charles Bourassa · Quantum Concepts LLC, Santa Fe, New Mexico. */
+
+.privacy-banner {
+  border: 1px solid var(--gold-dim);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: rgba(212, 175, 55, 0.08);
+  padding: 0.8rem 1.1rem;
+  margin: 1rem 0 1.25rem;
+  font-size: 0.95rem;
+}
+.privacy-banner strong {
+  color: var(--gold-bright);
+}
+
+.privacy-section {
+  margin-top: 1.5rem;
+}
+.privacy-section > h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+  color: var(--gold);
+}
+
+.privacy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.privacy-grid .card {
+  margin-bottom: 0;
+}
+
+.member-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  font-size: 0.9rem;
+}
+.member-row:last-of-type {
+  border-bottom: none;
+}
+.member-row .member-name {
+  flex: 1 1 auto;
+}
+.member-kind {
+  font-size: 0.74rem;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-small {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.inline-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+  align-items: end;
+}
+.inline-form .field {
+  margin-bottom: 0;
+  flex: 1 1 160px;
+}
+
+.action-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.action-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.18rem 0.6rem;
+}
+.action-chip.is-allow {
+  color: var(--gold-bright);
+  border-color: var(--gold-dim);
+  background: rgba(212, 175, 55, 0.1);
+}
+.action-chip.is-deny {
+  color: var(--fg-dim);
+  border-color: var(--border-soft);
+}
+
+.matrix-scroll {
+  overflow-x: auto;
+}
+.matrix td.cell-allow-bg {
+  background: rgba(123, 227, 168, 0.06);
+}
+.matrix td.cell-deny-bg {
+  background: rgba(255, 138, 138, 0.04);
+}
+.cell-mark {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.preview-resource {
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  margin-bottom: 0.6rem;
+  background: var(--bg-elevated);
+}
+.preview-resource h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+.preview-reason {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+}
+
+.pass-row,
+.request-row {
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  margin-bottom: 0.6rem;
+  background: var(--bg-elevated);
+  font-size: 0.9rem;
+}
+.pass-row h4,
+.request-row h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.status-active {
+  color: var(--green);
+  font-weight: 600;
+}
+.status-expired {
+  color: var(--gold-bright);
+  font-weight: 600;
+}
+.status-revoked {
+  color: var(--red);
+  font-weight: 600;
+}
+.status-pending {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.checkbox-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+.checkbox-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.checkbox-row input[type="checkbox"] {
+  accent-color: var(--gold);
+  width: 1rem;
+  height: 1rem;
+}
+
+.emergency-note {
+  border: 1px solid #a33b2e;
+  border-left: 4px solid #a33b2e;
+  border-radius: var(--radius);
+  background: rgba(163, 59, 46, 0.1);
+  padding: 0.8rem 1.1rem;
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+
+.disclosure-box {
+  border: 1px solid var(--gold-dim);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  background: rgba(212, 175, 55, 0.06);
+}
+
+.world-card-locked {
+  opacity: 0.85;
+  border-style: dashed;
+}
+.world-card-locked .lock-note {
+  font-size: 0.85rem;
+  color: var(--red);
+}
+.world-summary {
+  font-size: 0.9rem;
+  margin: 0.35rem 0 0;
+}
+
+.beat-result {
+  margin-top: 0.8rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.8rem;
+  font-size: 0.92rem;
+}
+
+.audit-scroll {
+  max-height: 480px;
+  overflow-y: auto;
+}
