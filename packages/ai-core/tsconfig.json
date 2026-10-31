@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    // Self-reference: @omega/legacy-engine's types import @omega/ai-core.
+    // Resolving that import to src (not our own dist/*.d.ts) keeps the
+    // emit program free of TS5055 overwrite conflicts on build.
+    "paths": { "@omega/ai-core": ["./src/index.ts"] },
+    "rootDir": "src"
+  },
+  "extends": "../../tsconfig.base.json",
+  "include": ["src"]
+}

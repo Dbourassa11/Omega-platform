@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "@omega/consent-core": "workspace:*",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@types/three": "0.180.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.5"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./data": {
+      "types": "./dist/data.d.ts",
+      "default": "./dist/data.js"
+    },
+    "./stellar": {
+      "types": "./dist/stellar.d.ts",
+      "default": "./dist/stellar.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.js",
+  "name": "@omega/cosmos-engine",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist .turbo",
+    "lint": "eslint src",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "0.0.0"
+}
