@@ -1,0 +1,136 @@
+# Omega Platform CI — SCAFFOLD workflow definition.
+# Intended location when activated: .github/workflows/ci.yml at the repo root
+# (this copy lives under infra/github-actions/ as the canonical source).
+#
+# Honest scope: this workflow runs lint, typecheck, tests, a dependency audit,
+# and a basic secret-pattern scan only. It does NOT deploy anything, does NOT
+# publish packages, and does NOT prove the platform is secure or production
+# ready. Contract tests run via Foundry in the contracts/ directory.
+#
+# No secrets in repo: this workflow uses no repository secrets. Never commit
+# credentials, private keys, tokens, or .env files (only .env.example may be
+# committed). The secret-scan job below enforces the common patterns.
+#
+# Creator: David Charles Bourassa · Quantum Concepts LLC, Santa Fe, New Mexico.
+
+name: omega-ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+      - name: Run contract tests (Foundry)
+        working-directory: contracts
+        run: forge test
+
+  audit:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm audit --audit-level=high
+
+  secret-scan:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail on committed secrets or private keys
+        shell: bash
+        run: |
+          set -euo pipefail
+          fail=0
+
+          # Private key headers
+          if git grep -n -E 'BEGIN RSA PRIVATE KEY' -- . ':(exclude)infra/github-actions/ci.yml' ':(exclude).github/workflows/ci.yml'; then
+            echo "::error::Found an RSA private key header in tracked files."
+            fail=1
+          fi
+          if git grep -n -E 'BEGIN OPENSSH PRIVATE KEY' -- . ':(exclude)infra/github-actions/ci.yml' ':(exclude).github/workflows/ci.yml'; then
+            echo "::error::Found an OpenSSH private key header in tracked files."
+            fail=1
+          fi
+
+          # AWS access key IDs
+          if git grep -n -E 'AKIA[0-9A-Z]{16}' -- . ':(exclude)infra/github-actions/ci.yml' ':(exclude).github/workflows/ci.yml'; then
+            echo "::error::Found an AWS access key ID pattern in tracked files."
+            fail=1
+          fi
+
+          # GitHub personal access tokens (classic)
+          if git grep -n -E 'ghp_[A-Za-z0-9]{36}' -- . ':(exclude)infra/github-actions/ci.yml' ':(exclude).github/workflows/ci.yml'; then
+            echo "::error::Found a GitHub token pattern in tracked files."
+            fail=1
+          fi
+
+          # Committed .env files (other than .env.example)
+          env_files="$(git ls-files | grep -E '(^|/)\.env($|\.)' | grep -v -E '(^|/)\.env\.example$' || true)"
+          if [ -n "$env_files" ]; then
+            echo "::error::Committed .env file(s) found (only .env.example is allowed):"
+            echo "$env_files"
+            fail=1
+          fi
+
+          if [ "$fail" -ne 0 ]; then
+            echo "Secret scan failed. Remove the flagged material; never commit secrets."
+            exit 1
+          fi
+          echo "Secret scan passed: no flagged patterns found."
