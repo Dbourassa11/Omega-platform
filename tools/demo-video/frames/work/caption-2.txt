@@ -1,0 +1,1 @@
+Click a node: fly-to-node, inspection panel opens.

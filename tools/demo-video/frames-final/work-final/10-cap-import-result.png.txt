@@ -1,0 +1,2 @@
+Parsed entirely in the browser; nothing uploaded;
+deny-by-default into the most restrictive ring

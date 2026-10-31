@@ -1,0 +1,43 @@
+{
+  "base": "http://127.0.0.1:3217",
+  "capturedAt": "2026-10-26T15:56:40.951Z",
+  "frames": [
+    {
+      "beat": 1,
+      "title": "Hook — your graph, as a cosmos",
+      "caption": "Your Facebook graph, as a living cosmos you actually own. (2,000 nodes)",
+      "file": "beat1-hook.png"
+    },
+    {
+      "beat": 2,
+      "title": "Fly-through — click a node",
+      "caption": "Click a node: fly-to-node, inspection panel opens.",
+      "file": "beat2-flyto.png"
+    },
+    {
+      "beat": 3,
+      "title": "The ring switch — Public to Family",
+      "caption": "The universe re-lights: what changed is what the AI may see.",
+      "file": "beat3-rings.png"
+    },
+    {
+      "beat": 4,
+      "title": "Ask the Oracle — in-ring answer",
+      "caption": "Ring-scoped answer with citations, grounded only in in-ring demo data.",
+      "file": "beat4-oracle.png"
+    },
+    {
+      "beat": 5,
+      "title": "Guardian refusal — the boundary holds",
+      "caption": "The Guardian refuses, visibly, with the ring boundary named.",
+      "file": "beat5-guardian.png"
+    },
+    {
+      "beat": 6,
+      "title": "Close — Trust Beacon & PhiSplit",
+      "caption": "Trust 61.8033988% / Members 23.6067976% / Operations 14.5898036%",
+      "file": "beat6-phisplit.png"
+    }
+  ],
+  "consoleErrors": []
+}

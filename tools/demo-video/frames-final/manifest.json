@@ -1,0 +1,147 @@
+{
+  "base": "http://127.0.0.1:3100",
+  "capturedAt": "2026-10-28T02:22:48.617Z",
+  "frames": [
+    {
+      "section": "cosmos",
+      "sectionTitle": "Cosmos — Three Views",
+      "sectionNarration": "One engine, three views of the same cosmos.",
+      "caption": "Consent Cosmos — synthetic demo constellation, no real member data",
+      "file": "cosmos-consent.png",
+      "hold": 7
+    },
+    {
+      "section": "cosmos",
+      "caption": "Universe — simulated cosmic web; a statistical model, not a star catalog",
+      "file": "cosmos-universe.png",
+      "hold": 7
+    },
+    {
+      "section": "cosmos",
+      "caption": "Multiverse — SPECULATIVE visualization, labeled as such in-product",
+      "file": "cosmos-multiverse.png",
+      "hold": 7
+    },
+    {
+      "section": "cosmos-stellar",
+      "sectionTitle": "Stellar Physics",
+      "sectionNarration": "Friends make a star massive · Followers make it dense and bright",
+      "caption": "Every member is a star — friends set its mass; followers set its density and brightness, computed live in the inspector",
+      "file": "cosmos-stellar.png",
+      "hold": 8
+    },
+    {
+      "section": "import",
+      "sectionTitle": "Import Archive",
+      "sectionNarration": "Your Facebook export, parsed on your own device.",
+      "caption": "Parsed entirely in the browser; nothing uploaded; deny-by-default into the most restrictive ring",
+      "file": "import-result.png",
+      "hold": 8
+    },
+    {
+      "section": "vault",
+      "sectionTitle": "Sovereign Vault",
+      "sectionNarration": "Real encryption, on-device, ring by ring.",
+      "caption": "Encrypted locally into the family ring — AES-GCM, the item key wrapped per ring",
+      "file": "vault-added.png",
+      "hold": 5
+    },
+    {
+      "section": "vault",
+      "caption": "Decrypt & verify — SHA-256 integrity match",
+      "file": "vault-verified.png",
+      "hold": 7
+    },
+    {
+      "section": "garden",
+      "sectionTitle": "Eternal Garden",
+      "sectionNarration": "The Legacy Mirror answers only from the archive.",
+      "caption": "Cited from the archive",
+      "file": "garden-cited.png",
+      "hold": 8
+    },
+    {
+      "section": "garden",
+      "caption": "No support in the archive — the Mirror abstains. It never invents a memory.",
+      "file": "garden-abstain.png",
+      "hold": 8
+    },
+    {
+      "section": "privacy",
+      "caption": "One member's world, five authorized views — every decision computed by the policy engine",
+      "file": "privacy-doctor.png",
+      "hold": 4,
+      "sectionTitle": "Privacy — Five Viewers",
+      "sectionNarration": "The same world, re-rendered per viewer."
+    },
+    {
+      "section": "privacy",
+      "caption": "One member's world, five authorized views — every decision computed by the policy engine",
+      "file": "privacy-family.png",
+      "hold": 4
+    },
+    {
+      "section": "privacy",
+      "caption": "One member's world, five authorized views — every decision computed by the policy engine",
+      "file": "privacy-friend.png",
+      "hold": 4
+    },
+    {
+      "section": "privacy",
+      "caption": "One member's world, five authorized views — every decision computed by the policy engine",
+      "file": "privacy-coworker.png",
+      "hold": 4
+    },
+    {
+      "section": "privacy",
+      "caption": "One member's world, five authorized views — every decision computed by the policy engine",
+      "file": "privacy-public.png",
+      "hold": 4
+    },
+    {
+      "section": "omni",
+      "sectionTitle": "Omni Demonstration",
+      "sectionNarration": "Agents propose. A person approves. Receipts prove it.",
+      "caption": "The offline planner proposes a 10-step plan — generating it runs nothing",
+      "file": "omni-plan.png",
+      "hold": 6
+    },
+    {
+      "section": "omni",
+      "caption": "Agents propose; a person approves; every step runs under a purpose-limited pass and lands a receipt",
+      "file": "omni-results.png",
+      "hold": 9
+    },
+    {
+      "section": "communities",
+      "sectionTitle": "Communities",
+      "sectionNarration": "What the approved run built.",
+      "caption": "Terra Tech Commons — created by the approved Omni run, demo-local",
+      "file": "communities-top.png",
+      "hold": 4
+    },
+    {
+      "section": "communities",
+      "caption": "The community the run built — inspectable, receipted",
+      "file": "communities-feed.png",
+      "hold": 6
+    },
+    {
+      "section": "close",
+      "sectionTitle": "Close — the Public Shell",
+      "sectionNarration": "What anyone may see — no account, no receipt.",
+      "caption": "The disclosure-filtered public shell — allowlist-enforced, nothing personal",
+      "file": "public-shell.png",
+      "hold": 7
+    }
+  ],
+  "consoleErrors": [],
+  "notes": [
+    "stellar: inspector opened on a member star — Mass / Density / Brightness readouts visible",
+    "vault: decrypt & verify reached 'Verified ✓ — integrity match'",
+    "garden cited answer kind-check: You asked (as family): “Tell me about the lighthouse at Port Anselm” LEGACY MIRROR OFFICIAL PERSONAL AI LOCAL DEMO LOGI",
+    "garden: abstention state confirmed in-page before capture",
+    "omni run summary in-page: RUN COMPLETED 10/10 steps executed",
+    "communities: educational draft published to the feed via the page's own button"
+  ]
+}

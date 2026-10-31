@@ -1,0 +1,1 @@
+Real encryption, on-device, ring by ring.
